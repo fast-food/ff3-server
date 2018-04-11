@@ -9,8 +9,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "nodejs server.js",
-    "start": "node server.js"
+    "test": "nodejs src/server.js",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",

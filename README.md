@@ -4,5 +4,5 @@
 git clone https://github.com/fast-food/ff3-server
 cd ff3-server
 npm install
-nodejs server.js
+nodejs src/server.js
 ```

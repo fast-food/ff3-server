@@ -5,8 +5,8 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({	extended: true }));
-const foodFilePath = __dirname + "/" + "food.json";
-const menuFilePath = __dirname + "/" + "menu.json";
+const foodFilePath = __dirname + "/" + "../data/food.json";
+const menuFilePath = __dirname + "/" + "../data/menu.json";
 
 app.get('/menu', function (req, res) {
     console.log("requested: /menu");
