@@ -1,0 +1,60 @@
+{
+    "sandwich": [
+        {
+            "id": 1,
+            "name": "BigMac"
+        },
+        {
+            "id": 2,
+            "name": "Whooper"
+        },
+        {
+            "id": 3,
+            "name": "McChicken"
+        },
+        {
+            "id": 4,
+            "name": "Hamburger"
+        },
+        {
+            "id": 5,
+            "name": "CheeseBurger"
+        }
+    ],
+    "extra": [
+        {
+            "id": 1,
+            "name": "FrenchFries"
+        },
+        {
+            "id": 2,
+            "name": "Potatoes"
+        },
+        {
+            "id": 3,
+            "name": "OnionRings"
+        }
+    ],
+    "drink": [
+        {
+            "id": 1,
+            "name": "Coca-Cola"
+        },
+        {
+            "id": 2,
+            "name": "IceTea"
+        },
+        {
+            "id": 3,
+            "name": "Orangina"
+        },
+        {
+            "id": 4,
+            "name": "Fanta"
+        },
+        {
+            "id": 5,
+            "name": "Pepsi"
+        }
+    ]
+}
