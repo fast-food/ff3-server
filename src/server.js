@@ -163,7 +163,7 @@ app.post('/addDrink', function (req, res) {
 app.post('/addMenu', function (req, res) {
     console.log("requested: /addMenu");
     if(req.body.hasOwnProperty('price') && req.body.hasOwnProperty('food_type')){
-        var price = req.body.price;
+        var price = parseFloat(req.body.price);
         var foodType = JSON.parse(req.body.food_type);
         fs.readFile(menuFilePath, 'utf8', function (err, data) {
             if (!err) {
