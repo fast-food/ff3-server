@@ -12,7 +12,8 @@ app.get('/menu', function (req, res) {
     console.log("requested: /menu");
     fs.readFile(menuFilePath, 'utf8', function (err, data) {
         if (!err) {
-            res.end(data);
+            data = JSON.parse(data);
+            res.end(JSON.stringify(data));
         }
         else{
             res.status(500).send("Could not get data");
@@ -24,7 +25,8 @@ app.get('/food', function (req, res) {
     console.log("requested: /food");
     fs.readFile(foodFilePath, 'utf8', function (err, data) {
         if (!err) {
-            res.end(data);
+            data = JSON.parse(data);
+            res.end(JSON.stringify(data));
         }
         else{
             res.status(500).send("Could not get data");
