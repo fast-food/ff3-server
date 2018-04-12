@@ -160,6 +160,34 @@ app.post('/addDrink', function (req, res) {
     }
 })
 
+app.post('/addMenu', function (req, res) {
+    console.log("requested: /addMenu");
+    if(req.body.hasOwnProperty('price') && req.body.hasOwnProperty('food_type')){
+        var name = req.body.name;
+        var foodType = req.body.food_type;
+        fs.readFile(menuFilePath, 'utf8', function (err, data) {
+            if (!err) {
+                data = JSON.parse(data);
+                data.push({"name":name, "food_type":food_type});
+                fs.writeFile(menuFilePath, JSON.stringify(data, null, 4), 'utf8', function (err) {
+                    if(!err) {
+                        res.end();
+                    }
+                    else{
+                        res.status(500).send("Could not write data");
+                    }
+                });
+            }
+            else{
+                res.status(500).send("Could not read data");
+            }
+        });
+    }
+    else{
+        res.status(500).send("You must specify a \"name\" and a \"food_type\"");
+    }
+})
+
 var server = app.listen(8080, function () {
     var port = server.address().port
     console.log("Server listening at http://127.0.0.1:%s", port)
