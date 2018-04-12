@@ -168,7 +168,7 @@ app.post('/addMenu', function (req, res) {
         fs.readFile(menuFilePath, 'utf8', function (err, data) {
             if (!err) {
                 data = JSON.parse(data);
-                data.push({"name":name, "food_type":food_type});
+                data.push({"name":name, "food_type":foodType});
                 fs.writeFile(menuFilePath, JSON.stringify(data, null, 4), 'utf8', function (err) {
                     if(!err) {
                         res.end();
