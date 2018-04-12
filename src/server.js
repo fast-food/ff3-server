@@ -163,12 +163,12 @@ app.post('/addDrink', function (req, res) {
 app.post('/addMenu', function (req, res) {
     console.log("requested: /addMenu");
     if(req.body.hasOwnProperty('price') && req.body.hasOwnProperty('food_type')){
-        var name = req.body.name;
-        var foodType = req.body.food_type;
+        var price = req.body.price;
+        var foodType = JSON.parse(req.body.food_type);
         fs.readFile(menuFilePath, 'utf8', function (err, data) {
             if (!err) {
                 data = JSON.parse(data);
-                data.push({"name":name, "food_type":foodType});
+                data.push({"price":price, "food_type":foodType});
                 fs.writeFile(menuFilePath, JSON.stringify(data, null, 4), 'utf8', function (err) {
                     if(!err) {
                         res.end();
