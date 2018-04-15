@@ -5,8 +5,22 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({	extended: true }));
+const typeFilePath = __dirname + "/" + "../data/type.json";
 const foodFilePath = __dirname + "/" + "../data/food.json";
 const menuFilePath = __dirname + "/" + "../data/menu.json";
+
+app.get('/type', function (req, res) {
+    console.log("requested: /type");
+    fs.readFile(typeFilePath, 'utf8', function (err, data) {
+        if (!err) {
+            data = JSON.parse(data);
+            res.end(JSON.stringify(data));
+        }
+        else{
+            res.status(500).send("Could not get data");
+        }
+    });
+})
 
 app.get('/menu', function (req, res) {
     console.log("requested: /menu");
