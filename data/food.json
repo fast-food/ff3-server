@@ -1,73 +1,77 @@
-{
-    "sandwich": [
-        {
-            "id": 1,
-            "type": 0,
-            "name": "BigMac"
-        },
-        {
-            "id": 2,
-            "type": 0,
-            "name": "Whooper"
-        },
-        {
-            "id": 3,
-            "type": 0,
-            "name": "McChicken"
-        },
-        {
-            "id": 4,
-            "type": 0,
-            "name": "Hamburger"
-        },
-        {
-            "id": 5,
-            "type": 0,
-            "name": "CheeseBurger"
-        }
-    ],
-    "extra": [
-        {
-            "id": 1,
-            "type": 1,
-            "name": "FrenchFries"
-        },
-        {
-            "id": 2,
-            "type": 1,
-            "name": "Potatoes"
-        },
-        {
-            "id": 3,
-            "type": 1,
-            "name": "OnionRings"
-        }
-    ],
-    "drink": [
-        {
-            "id": 1,
-            "type": 2,
-            "name": "Coca-Cola"
-        },
-        {
-            "id": 2,
-            "type": 2,
-            "name": "IceTea"
-        },
-        {
-            "id": 3,
-            "type": 2,
-            "name": "Orangina"
-        },
-        {
-            "id": 4,
-            "type": 2,
-            "name": "Fanta"
-        },
-        {
-            "id": 5,
-            "type": 2,
-            "name": "Pepsi"
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "type": 0,
+        "name": "BigMac"
+    },
+    {
+        "id": 2,
+        "type": 0,
+        "name": "Whooper"
+    },
+    {
+        "id": 3,
+        "type": 0,
+        "name": "McChicken"
+    },
+    {
+        "id": 4,
+        "type": 0,
+        "name": "Hamburger"
+    },
+    {
+        "id": 5,
+        "type": 0,
+        "name": "Cheeseburger"
+    },
+    {
+        "id": 6,
+        "type": 1,
+        "name": "French Fries"
+    },
+    {
+        "id": 7,
+        "type": 1,
+        "name": "Potatoes"
+    },
+    {
+        "id": 8,
+        "type": 1,
+        "name": "Onion Rings"
+    },
+    {
+        "id": 9,
+        "type": 2,
+        "name": "Coca-Cola"
+    },
+    {
+        "id": 10,
+        "type": 2,
+        "name": "IceTea"
+    },
+    {
+        "id": 11,
+        "type": 2,
+        "name": "Orangina"
+    },
+    {
+        "id": 12,
+        "type": 2,
+        "name": "Fanta"
+    },
+    {
+        "id": 13,
+        "type": 2,
+        "name": "Pepsi"
+    },
+    {
+        "id": 14,
+        "type": 3,
+        "name": "Ice Cream"
+    },
+    {
+        "id": 15,
+        "type": 3,
+        "name": "Cookie"
+    }
+]

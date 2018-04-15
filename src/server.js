@@ -34,55 +34,17 @@ app.get('/food', function (req, res) {
     });
 })
 
-app.get('/sandwich', function (req, res) {
-    console.log("requested: /sandwich");
-    fs.readFile(foodFilePath, 'utf8', function (err, data) {
-        if (!err) {
-            data = JSON.parse(data);
-            res.end(JSON.stringify(data.sandwich));
-        }
-        else{
-            res.status(500).send("Could not get data");
-        }
-    });
-})
-
-app.get('/extra', function (req, res) {
-    console.log("requested: /extra");
-    fs.readFile(foodFilePath, 'utf8', function (err, data) {
-        if(!err) {
-            data = JSON.parse(data);
-            res.end(JSON.stringify(data.extra));
-        }
-        else{
-            res.status(500).send("Could not get data");
-        }
-    });
-})
-
-app.get('/drink', function (req, res) {
-    console.log("requested: /drink");
-    fs.readFile(foodFilePath, 'utf8', function (err, data) {
-        if(!err) {
-            data = JSON.parse(data);
-            res.end(JSON.stringify(data.drink));
-        }
-        else{
-            res.status(500).send("Could not get data");
-        }
-    });
-})
-
-app.post('/addSandwich', function (req, res) {
-    console.log("requested: /addSandwich");
-    if(req.body.hasOwnProperty('name')){
+app.post('/food/add', function (req, res) {
+    console.log("requested: /food/add");
+    if(req.body.hasOwnProperty('name') && req.body.hasOwnProperty('type')){
         var name = req.body.name;
+        var type = parseInt(req.body.type);
         fs.readFile(foodFilePath, 'utf8', function (err, data) {
             if (!err) {
                 data = JSON.parse(data);
-                var index = Object.keys(data.sandwich).length - 1;
-                var id = data.sandwich[index].id + 1;
-                data.sandwich.push({"id":id, "name":name});
+                var index = Object.keys(data).length - 1;
+                var id = data[index].id + 1;
+                data.push({"id":id, "type":type, "name":name});
                 fs.writeFile(foodFilePath, JSON.stringify(data, null, 4), 'utf8', function (err) {
                     if(!err) {
                         res.end();
@@ -98,70 +60,12 @@ app.post('/addSandwich', function (req, res) {
         });
     }
     else{
-        res.status(500).send("You must specify a \"name\"");
+        res.status(500).send("You must specify the following fields: \"name\", \"type\"");
     }
 })
 
-app.post('/addExtra', function (req, res) {
-    console.log("requested: /addExtra");
-    if(req.body.hasOwnProperty('name')){
-        var name = req.body.name;
-        fs.readFile(foodFilePath, 'utf8', function (err, data) {
-            if (!err) {
-                data = JSON.parse(data);
-                var index = Object.keys(data.extra).length - 1;
-                var id = data.extra[index].id + 1;
-                data.extra.push({"id":id, "name":name});
-                fs.writeFile(foodFilePath, JSON.stringify(data, null, 4), 'utf8', function (err) {
-                    if(!err) {
-                        res.end();
-                    }
-                    else{
-                        res.status(500).send("Could not write data");
-                    }
-                });
-            }
-            else{
-                res.status(500).send("Could not read data");
-            }
-        });
-    }
-    else{
-        res.status(500).send("You must specify a \"name\"");
-    }
-})
-
-app.post('/addDrink', function (req, res) {
-    console.log("requested: /addDrink");
-    if(req.body.hasOwnProperty('name')){
-        var name = req.body.name;
-        fs.readFile(foodFilePath, 'utf8', function (err, data) {
-            if (!err) {
-                data = JSON.parse(data);
-                var index = Object.keys(data.drink).length - 1;
-                var id = data.drink[index].id + 1;
-                data.drink.push({"id":id, "name":name});
-                fs.writeFile(foodFilePath, JSON.stringify(data, null, 4), 'utf8', function (err) {
-                    if(!err) {
-                        res.end();
-                    }
-                    else{
-                        res.status(500).send("Could not write data");
-                    }
-                });
-            }
-            else{
-                res.status(500).send("Could not read data");
-            }
-        });
-    }
-    else{
-        res.status(500).send("You must specify a \"name\"");
-    }
-})
-
-app.post('/addMenu', function (req, res) {
-    console.log("requested: /addMenu");
+app.post('/menu/add', function (req, res) {
+    console.log("requested: /menu/add");
     if(req.body.hasOwnProperty('price') && req.body.hasOwnProperty('food_type')){
         var price = parseFloat(req.body.price);
         var foodType = JSON.parse(req.body.food_type);
@@ -184,7 +88,7 @@ app.post('/addMenu', function (req, res) {
         });
     }
     else{
-        res.status(500).send("You must specify a \"name\" and a \"food_type\"");
+        res.status(500).send("You must specify the following fields: \"name\", \"food_type[]\"");
     }
 })
 
