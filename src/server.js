@@ -25,7 +25,7 @@ app.get('/type', function (req, res) {
 app.get('/menu', function (req, res) {
     console.log("requested: /menu");
     fs.readFile(menuFilePath, 'utf8', function (err, data) {
-        if (!err) {
+        if(!err){
             data = JSON.parse(data);
             res.end(JSON.stringify(data));
         }
@@ -60,7 +60,7 @@ app.post('/food/add', function (req, res) {
                 var id = data[index].id + 1;
                 data.push({"id":id, "type":type, "name":name});
                 fs.writeFile(foodFilePath, JSON.stringify(data, null, 4), 'utf8', function (err) {
-                    if(!err) {
+                    if(!err){
                         res.end();
                     }
                     else{
@@ -86,7 +86,9 @@ app.post('/menu/add', function (req, res) {
         fs.readFile(menuFilePath, 'utf8', function (err, data) {
             if (!err) {
                 data = JSON.parse(data);
-                data.push({"price":price, "food_type":foodType});
+                var index = Object.keys(data).length - 1;
+                var id = data[index].id + 1;
+                data.push({"id":id, "price":price, "food_type":foodType});
                 fs.writeFile(menuFilePath, JSON.stringify(data, null, 4), 'utf8', function (err) {
                     if(!err) {
                         res.end();
