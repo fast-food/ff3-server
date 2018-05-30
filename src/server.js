@@ -48,6 +48,18 @@ app.get('/food', function (req, res) {
     });
 })
 
+app.post('/order', function (req, res) {
+    console.log("requested: /order");
+    if(req.body.hasOwnProperty('order')){
+        var order = JSON.parse(req.body.order);
+        console.log(order);
+        res.end();
+    }
+    else{
+        res.status(500).send("You must specify the following fields: \"order\"");
+    }
+})
+
 app.post('/food/add', function (req, res) {
     console.log("requested: /food/add");
     if(req.body.hasOwnProperty('name') && req.body.hasOwnProperty('type')){
