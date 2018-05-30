@@ -1,8 +1,7 @@
-# ff3-server
-
+# Fast-Food server
 ```
-git clone https://github.com/fast-food/ff3-server
-cd ff3-server
+git clone https://github.com/fast-food/server
+cd server
 npm install
 nodejs src/server.js
 ```
